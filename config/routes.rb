@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   	get 'provider/sign_up' => 'user_registrations#new', :user => { :user_type => 'provider' }
   	get 'sme/sign_up' => 'user_registrations#new', :user => { :user_type => 'sme' }
   	get 'users' => 'users#index'
+    get 'users/:id' => 'users#show', as: 'profile'
   end
 end
