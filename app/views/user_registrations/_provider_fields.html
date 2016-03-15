@@ -1,0 +1,39 @@
+<div><%= "Are you acting as an individual credit provider or wish to invest as a company?" %><br /></div>
+<%= f.radio_button(:provider_type, "Individual") %> 
+<%= f.label(:provider_type, "Individual") %>
+<%= f.radio_button(:provider_type, "Company") %> 
+<%= f.label(:provider_type, "Company") %>
+
+<div><%= f.label :username, "Name of Funder" %><br />
+<%= f.text_field :username %></div>
+
+<div><%= "Please read through the following questions and answer them accordingly. 
+These information will help SMEs narrow down their search for suitable credit providers." %><br /></div>
+
+
+<div><%= "1. Nature of Financing Offered" %><br /></div>
+<div><%= check_box_tag 'user[nature_of_financing][]', 'Options', false, id: 'nature_of_financing_options' %>
+<%= label_tag 'nature_of_financing', 'Options' %></div>
+<div><%= check_box_tag 'user[nature_of_financing][]', 'Loans', false, id: 'nature_of_financing_loans' %>
+<%= label_tag 'nature_of_funding', 'Loans' %></div>
+<div><%= check_box_tag 'user[nature_of_financing][]', 'Equity', false, id: 'nature_of_financing_equity' %>
+<%= label_tag 'nature_of_financing', 'Equity' %></div>
+<div><%= check_box_tag 'user[nature_of_financing][]', 'Others', false, id: 'nature_of_financing_others' %>
+<%= label_tag 'nature_of_financing', 'Others' %></div>
+
+
+<div><%= "2. Other Forms of Support Offered" %><br /></div>
+<div><%= check_box_tag 'user[other_support_offered][]', 'Financial Management', false, id: 'other_support_offered_financial_management' %>
+<%= label_tag 'other_support_offered', 'Financial Management' %></div>
+<div><%= check_box_tag 'user[other_support_offered][]', 'Strategy Expertise', false, id: 'other_support_offered_strategy_expertise' %>
+<%= label_tag 'other_support_offered', 'Strategy Expertise' %></div>
+<div><%= check_box_tag 'user[other_support_offered][]', 'Financing Advice', false, id: 'other_support_offered_financing_advice' %>
+<%= label_tag 'other_support_offered', 'Financing Advice' %></div>
+<div><%= check_box_tag 'user[other_support_offered][]', 'Marketing Advice', false, id: 'other_support_offered_marketing_advice' %>
+<%= label_tag 'other_support_offered', 'Marketing Advice' %></div>
+<div><%= check_box_tag 'user[other_support_offered][]', 'Human Resources Advice', false, id: 'other_support_offered_human_resources_advice' %>
+<%= label_tag 'other_support_offered', 'Human Resources Advice' %></div>
+<div><%= check_box_tag 'user[other_support_offered][]', 'Operations Advice', false, id: 'other_support_offered_operations_advice' %>
+<%= label_tag 'other_support_offered', 'Operations Advice' %></div>
+<div><%= check_box_tag 'user[other_support_offered][]', 'Others', false, id: 'other_support_offered_others' %>
+<%= label_tag 'other_support_offered', 'Others' %></div>
