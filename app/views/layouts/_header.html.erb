@@ -3,6 +3,7 @@
     <%= link_to "Alternative Financing Portal", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="">User Profile</a></li>
         <% if user_signed_in? %>
         <li><%= link_to "Search", users_path %></li>
         <% else %>
