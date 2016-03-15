@@ -8,6 +8,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit_settings
+    @user = User.find(params[:id])
+  end
+
+  def update_settings
+    @user = User.find(params[:id])
+    if @user.update_attributes(setting_params)
+    else
+      render 'edit_settings'
+    end
+  end
+
   def index
     @filterrific = initialize_filterrific(
       User,
@@ -31,5 +43,12 @@ class UsersController < ApplicationController
       format.js
     end
   end
+
+  private
+
+    def setting_params
+      params.require(:user).permit(:address, :contact_number, :email, :password,
+                                   :password_confirmation)
+    end
 
 end

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   devise_scope:user do
   	get 'provider/sign_up' => 'user_registrations#new', :user => { :user_type => 'provider' }
   	get 'sme/sign_up' => 'user_registrations#new', :user => { :user_type => 'sme' }
-  	get 'users' => 'users#index'
+  	get 'all_users' => 'users#index'
     get 'users/:id' => 'users#show', as: 'profile'
+    get 'users/:id/edit_settings' => 'users#edit_settings', :as => :user
+    patch 'users/:id/edit_settings' => 'users#update_settings'
   end
 end

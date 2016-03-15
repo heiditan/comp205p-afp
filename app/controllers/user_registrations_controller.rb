@@ -64,7 +64,7 @@ protected
   private
 
   def sign_up_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :username, :ceo_name, :provider_type, :business_activity, :date_founded, other_support_offered:[], nature_of_financing:[], nature_of_funding:[], other_support_sought:[])
+    params.require(:user).permit(:email, :password, :password_confirmation, :username, :ceo_name, :address, :contact_number, :provider_type, :business_activity, :date_founded, other_support_offered:[], nature_of_financing:[], nature_of_funding:[], other_support_sought:[])
   end
 
 end
