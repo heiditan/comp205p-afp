@@ -34325,3 +34325,15 @@ Processing by StaticPagesController#home as HTML
   Rendered layouts/_header.html.erb (0.4ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 119ms (Views: 63.2ms | ActiveRecord: 55.0ms)
+
+
+Started GET "/" for ::1 at 2016-03-15 10:15:13 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered static_pages/_home_signed_in.html.erb (0.8ms)
+  Rendered static_pages/home.html.erb within layouts/application (112.5ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 571ms (Views: 550.3ms | ActiveRecord: 1.0ms)
