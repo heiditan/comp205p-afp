@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :address, :contact_number, :nature_of_funding, :other_support_sought, :other_support_offered, :nature_of_financing, :date_founded, :ceo_name, :provider_type, :business_activity
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :address, :contact_number, :nature_of_funding, :other_support_sought, :other_support_offered, :nature_of_financing, :date_founded, :ceo_name, :provider_type, :business_activity, :content
 
   belongs_to :rolable, :polymorphic => true
 

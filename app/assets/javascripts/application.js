@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require filterrific/filterrific-jquery
+//= require ckeditor/init

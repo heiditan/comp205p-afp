@@ -46,6 +46,9 @@
   <div><%= check_box_tag 'user[other_support_sought][]', 'Others', false, id: 'other_support_sought_others' %>
   <%= label_tag 'other_support_sought', 'Others' %></div>
   
+  <div><%= "7. Use this to let credit providers know what your company is pitching! Anything can be shown here eg. company prospectus." %><br /></div>
+   <%= f.cktext_area :content, :class => "form-control" %>
+    
   <div><%= f.submit "Save changes", class: "btn btn-primary" %></div>
 <% end %>
 

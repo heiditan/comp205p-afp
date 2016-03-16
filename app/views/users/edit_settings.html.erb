@@ -3,15 +3,13 @@
 
 <%= form_for @user, url: edit_settings_path(@user) do |f| %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :required => 'required' %></div>
-
   <div><%= f.label :address %><br />
   <%= f.text_field :address, :required => 'required' %></div>
 
   <div><%= f.label :contact_number %><br />
   <%= f.text_field :contact_number, :required => 'required' %></div>
 
+  <div><%= 'Please enter your password to make the changes.' %></div>
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
 
@@ -20,4 +18,3 @@
   
   <%= f.submit "Save changes", class: "btn btn-primary" %>
 <% end %>
-

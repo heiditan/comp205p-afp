@@ -3,7 +3,7 @@ require 'will_paginate'
 include ActionView::Helpers::NumberHelper
 
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:edit_settings, :update_settings]
+  before_action :signed_in_user, only: [:edit_settings, :update_settings, :index]
 
   def show
     @user = User.find(params[:id])
@@ -87,15 +87,15 @@ class UsersController < ApplicationController
 
     def setting_params
       params.require(:user).permit(:address, :contact_number, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :current_password)
     end
 
     def sme_params
-      params.require(:user).permit(:ceo_name, :username, :business_activity, :date_founded, :nature_of_funding, :other_support_sought)
+      params.require(:user).permit(:ceo_name, :username, :business_activity, :date_founded, :content, nature_of_funding:[], other_support_sought:[])
     end
 
     def provider_params
-      params.require(:user).permit(:username, :provider_type)
+      params.require(:user).permit(:username, :provider_type, :content, nature_of_financing:[], other_support_offered:[])
     end
 
 end

@@ -3,16 +3,16 @@
 
 <%= form_for @user, url: provider_edit_path(@user) do |f| %>
 
-  <div><%= "1. Type of Credit Provider" %><br /></div>
+  <div><%= f.label :username, "1. Name of Funder" %><br />
+  <%= f.text_field :username, :required => 'required' %></div>
+
+  <div><%= "2. Type of Credit Provider" %><br /></div>
   <%= f.radio_button(:provider_type, "Individual") %> 
   <%= f.label(:provider_type, "Individual") %>
   <%= f.radio_button(:provider_type, "Company") %> 
   <%= f.label(:provider_type, "Company") %>
 
-  <div><%= f.label :username, "2. Name of Funder" %><br />
-  <%= f.text_field :username, :required => 'required' %></div>
-
-  <div><%= "3. Nature of Financing Offered (your current selection is'" %><%= @user.nature_of_financing %><%= "')" %><br /></div>
+  <div><%= "3. Nature of Financing Offered (your current selection is '" %><%= @user.nature_of_financing %><%= "')" %><br /></div>
   <div><%= check_box_tag 'user[nature_of_financing][]', 'Options', false, id: 'nature_of_financing_options' %>
   <%= label_tag 'nature_of_financing', 'Options' %></div>
   <div><%= check_box_tag 'user[nature_of_financing][]', 'Loans', false, id: 'nature_of_financing_loans' %>
@@ -22,7 +22,7 @@
   <div><%= check_box_tag 'user[nature_of_financing][]', 'Others', false, id: 'nature_of_financing_others' %>
   <%= label_tag 'nature_of_financing', 'Others' %></div>
 
-  <div><%= "4. Other Forms of Support Offered (your current selection is'" %><%= @user.other_support_offered %><%= "')" %><br /></div>
+  <div><%= "4. Other Forms of Support Offered (your current selection is '" %><%= @user.other_support_offered %><%= "')" %><br /></div>
   <div><%= check_box_tag 'user[other_support_offered][]', 'Financial Management', false, id: 'other_support_offered_financial_management' %>
   <%= label_tag 'other_support_offered', 'Financial Management' %></div>
   <div><%= check_box_tag 'user[other_support_offered][]', 'Strategy Expertise', false, id: 'other_support_offered_strategy_expertise' %>
@@ -37,6 +37,9 @@
   <%= label_tag 'other_support_offered', 'Operations Advice' %></div>
   <div><%= check_box_tag 'user[other_support_offered][]', 'Others', false, id: 'other_support_offered_others' %>
   <%= label_tag 'other_support_offered', 'Others' %></div>
+
+  <div><%= "5. Use this to let SMEs know more about you or your company as a credit provider! Anything can be shown here eg. your resume or your company prospectus." %><br /></div>
+   <%= f.cktext_area :content, :class => "form-control" %>
   
   <%= f.submit "Save changes", class: "btn btn-primary" %>
 <% end %>
