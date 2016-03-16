@@ -1,4 +1,12 @@
-<div><%= @user.username %></div>
+
 <div><%= @user.email %></div>
 <div><%= @user.address %></div>
 <div><%= @user.contact_number %></div>
+
+<% if @user.rolable_type == 'Sme' %>
+	<%= render 'sme_profile' %>
+<% else %>
+	<%= render 'provider_profile' %>
+<% end %>
+
+

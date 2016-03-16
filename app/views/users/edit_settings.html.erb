@@ -1,7 +1,7 @@
 <h1>Edit Settings</h1>
 
 
-<%= form_for(@user) do |f| %>
+<%= form_for @user, url: edit_settings_path(@user) do |f| %>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>

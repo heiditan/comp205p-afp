@@ -1,0 +1,51 @@
+<h1>Update your Profile</h1>
+
+
+<%= form_for @user, url: sme_edit_path(@user) do |f| %>
+  
+  <div><%= f.label :username, "1. Name of Company" %><br />
+  <%= f.text_field :username, :required => 'required' %></div>
+
+  <div><%= f.label :ceo_name, "2. Name of Chief Executive Officer" %><br />
+  <%= f.text_field :ceo_name, :required => 'required' %></div>
+
+  <div><%= "3. Date Founded" %><br /></div>
+  <%= date_field(:user, :date_founded) %>
+
+  <div><%= "4. Type of Business Activity" %><br /></div>
+  <%= f.radio_button(:business_activity, "Product") %> 
+  <%= f.label(:business_activity, "Product") %>
+  <%= f.radio_button(:business_activity, "Service") %> 
+  <%= f.label(:business_activity, "Service") %>
+  <%= f.radio_button(:business_activity, "Others") %> 
+  <%= f.label(:business_activity, "Others") %>
+
+  <div><%= "5. Nature of Funding Sought (your current selection is '" %><%= @user.nature_of_funding %><%= "')" %><br /></div>
+  <div><%= check_box_tag 'user[nature_of_funding][]', 'Options', false, id: 'nature_of_funding_options' %>
+  <%= label_tag 'nature_of_funding', 'Options' %></div>
+  <div><%= check_box_tag 'user[nature_of_funding][]', 'Loans', false, id: 'nature_of_funding_loans' %>
+  <%= label_tag 'nature_of_funding', 'Loans' %></div>
+  <div><%= check_box_tag 'user[nature_of_funding][]', 'Equity', false, id: 'nature_of_funding_equity' %>
+  <%= label_tag 'nature_of_funding', 'Equity' %></div>
+  <div><%= check_box_tag 'user[nature_of_funding][]', 'Others', false, id: 'nature_of_funding_others' %>
+  <%= label_tag 'nature_of_funding', 'Others' %></div>
+
+  <div><%= "6. Other Forms of Support Sought (your current selection is '" %><%= @user.other_support_sought %><%= "')" %><br /></div>
+  <div><%= check_box_tag 'user[other_support_sought][]', 'Financial Management', false, id: 'other_support_sought_financial_management' %>
+  <%= label_tag 'other_support_sought', 'Financial Management' %></div>
+  <div><%= check_box_tag 'user[other_support_sought][]', 'Strategy Expertise', false, id: 'other_support_sought_strategy_expertise' %>
+  <%= label_tag 'other_support_sought', 'Strategy Expertise' %></div>
+  <div><%= check_box_tag 'user[other_support_sought][]', 'Financing Advice', false, id: 'other_support_sought_financing_advice' %>
+  <%= label_tag 'other_support_sought', 'Financing Advice' %></div>
+  <div><%= check_box_tag 'user[other_support_sought][]', 'Marketing Advice', false, id: 'other_support_sought_marketing_advice' %>
+  <%= label_tag 'other_support_sought', 'Marketing Advice' %></div>
+  <div><%= check_box_tag 'user[other_support_sought][]', 'Human Resources Advice', false, id: 'other_support_sought_human_resources_advice' %>
+  <%= label_tag 'other_support_sought', 'Human Resources Advice' %></div>
+  <div><%= check_box_tag 'user[other_support_sought][]', 'Operations Advice', false, id: 'other_support_sought_operations_advice' %>
+  <%= label_tag 'other_support_sought', 'Operations Advice' %></div>
+  <div><%= check_box_tag 'user[other_support_sought][]', 'Others', false, id: 'other_support_sought_others' %>
+  <%= label_tag 'other_support_sought', 'Others' %></div>
+  
+  <div><%= f.submit "Save changes", class: "btn btn-primary" %></div>
+<% end %>
+

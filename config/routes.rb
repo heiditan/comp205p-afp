@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   	get 'sme/sign_up' => 'user_registrations#new', :user => { :user_type => 'sme' }
   	get 'all_users' => 'users#index'
     get 'users/:id' => 'users#show', as: 'profile'
-    get 'users/:id/edit_settings' => 'users#edit_settings', :as => :user
+    get 'users/:id/edit_settings' => 'users#edit_settings', as:'edit_settings'
     patch 'users/:id/edit_settings' => 'users#update_settings'
+    get 'users/:id/sme_edit' => 'users#sme_edit', as: 'sme_edit'
+    patch 'users/:id/sme_edit' => 'users#sme_update'
+    get 'users/:id/provider_edit' => 'users#provider_edit', as: 'provider_edit'
+    patch 'users/:id/provider_edit' => 'users#provider_update'
   end
 end
