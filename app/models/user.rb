@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :nature_of_funding, :other_support_sought, :other_support_offered, :nature_of_financing, :date_founded, :ceo_name, :provider_type, :business_activity
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :address, :contact_number, :nature_of_funding, :other_support_sought, :other_support_offered, :nature_of_financing, :date_founded, :ceo_name, :provider_type, :business_activity, :content
 
   belongs_to :rolable, :polymorphic => true
 
@@ -160,7 +160,7 @@ class User < ActiveRecord::Base
   end
 
   def self.provider_type_for_select
-    order('LOWER(provider_type)').select { |e| !e.provider_type.nil? }.map { |e| [e.provider_type] }.uniq
+    ['Company', 'Individual']
   end
 
   def self.nature_of_funding_for_select

@@ -23,10 +23,16 @@
   <%= my_devise_error_messages! %>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <%= f.email_field :email, :required => 'required' %></div>
+
+  <div><%= f.label :address, "Contact Address" %><br />
+  <%= f.text_field :address, :required => 'required' %></div>
+
+  <div><%= f.label :contact_number, "Contact Number" %><br />
+  <%= f.text_field :contact_number, :required => 'required' %></div>
 
   <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <%= f.password_field :password, :required => 'required' %></div>
 
   <div><%= f.label :password_confirmation, "Password Confirmation" %><br />
   <%= f.password_field :password_confirmation %></div>

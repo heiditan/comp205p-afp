@@ -21,6 +21,8 @@ gem 'devise'
 gem 'protected_attributes'
 gem 'filterrific'
 gem 'builder', '~> 3.2', '>= 3.2.2'
+gem 'ckeditor'
+gem 'paperclip'
 
 
 group :development, :test do
