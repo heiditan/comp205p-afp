@@ -1,6 +1,15 @@
-<div><%= @user.username %></div>
-<div><%= @user.provider_type %></div>
-<div><%= @user.nature_of_financing %></div>
-<div><%= @user.other_support_offered %></div>
+<div><%= "Other Information" %><br /></div>
 
-  <%= link_to "Edit Profile", provider_edit_path %>
+<div><%= "1. Type of Credit Provider" %><br /></div>
+<%= @user.provider_type %>
+
+<div><%= f.label :username, "2. Name of Funder" %><br />
+<%= @user.username %>
+
+<div><%= "3. Nature of Financing Offered" %><br /></div>
+<%= @user.nature_of_financing %>
+
+<div><%= "4. Other Forms of Support Offered" %><br /></div>
+<%= @user.other_support_offered %>
+
+<div><%= link_to "Edit Profile", provider_edit_path %></div>

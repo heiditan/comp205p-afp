@@ -1,7 +1,12 @@
+<h1>Contact Details</h1>
+<div><%= "Email Address" %><br /></div>
+<%= @user.email %>
 
-<div><%= @user.email %></div>
-<div><%= @user.address %></div>
-<div><%= @user.contact_number %></div>
+<div><%= "Contact Number" %><br /></div>
+<%= @user.contact_number %>
+
+<div><%= "Address" %><br /></div>
+<%= @user.address %>
 
 <% if @user.rolable_type == 'Sme' %>
 	<%= render 'sme_profile' %>
