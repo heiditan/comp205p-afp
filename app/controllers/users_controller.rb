@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def update_settings
     @user = User.find(params[:id])
     if @user.update_attributes(setting_params)
-      flash[:success] = "Settings have been successfully saved."
+      flash.now[:success] = "Settings have been successfully saved."
       render 'edit_settings'
     else
       render 'edit_settings'

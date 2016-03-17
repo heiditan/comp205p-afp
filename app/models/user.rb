@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :address, :contact_number, :nature_of_funding, :other_support_sought, :other_support_offered, :nature_of_financing, :date_founded, :ceo_name, :provider_type, :business_activity, :content
 
   belongs_to :rolable, :polymorphic => true
-
+  
   before_save do
     self.nature_of_funding.gsub!(/[\[\]\"]/, "") if attribute_present?("nature_of_funding")
     self.other_support_sought.gsub!(/[\[\]\"]/, "") if attribute_present?("other_support_sought")
