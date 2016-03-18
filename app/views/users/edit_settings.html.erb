@@ -2,6 +2,10 @@
 
 
 <%= form_for @user, url: edit_settings_path(@user) do |f| %>
+  <%= render 'shared/error_messages' %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :required => 'required' %></div>
 
   <div><%= f.label :address %><br />
   <%= f.text_field :address, :required => 'required' %></div>
