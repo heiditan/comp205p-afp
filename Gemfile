@@ -23,6 +23,8 @@ gem 'filterrific'
 gem 'builder', '~> 3.2', '>= 3.2.2'
 gem 'ckeditor'
 gem 'paperclip'
+gem 'private_pub'
+gem 'thin'
 
 
 group :development, :test do

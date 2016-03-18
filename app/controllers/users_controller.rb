@@ -3,7 +3,9 @@ require 'will_paginate'
 include ActionView::Helpers::NumberHelper
 
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:edit_settings, :update_settings, :index]
+  before_action :signed_in_user, only: [:edit_settings, :update_settings, :index, :all_users]
+
+  before_filter :authenticate_user!
 
   def show
     @user = User.find(params[:id])
@@ -51,9 +53,12 @@ class UsersController < ApplicationController
     end
   end
 
-
-
   def index
+      @users = User.where.not("id = ?",current_user.id).order("created_at DESC")
+      @conversations = Conversation.involving(current_user).order("created_at DESC")
+  end
+
+  def all_users
     @filterrific = initialize_filterrific(
       User,
       params[:filterrific],
