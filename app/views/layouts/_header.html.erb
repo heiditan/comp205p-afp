@@ -8,13 +8,21 @@
         <% else %>
         <li><%= link_to('Search', no_search_path) %></li>
         <% end %>
+
         <li><%= link_to "Home", root_path %></li>
+
         <% if user_signed_in? %>
         <li><%= link_to "Profile Page", profile_path(current_user) %></li>
         <% end %>
+
+        <% if user_signed_in? %>
+        <li><%= link_to "Messages", messages_path %></li>
+        <% end %>
+
         <% if user_signed_in? %>
         <li><%= link_to "Settings", edit_settings_path(current_user) %></li>
         <% end %>
+
         <% if user_signed_in? %>
         <li><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
         <% else %>
