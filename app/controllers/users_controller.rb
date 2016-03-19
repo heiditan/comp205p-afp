@@ -3,7 +3,7 @@ require 'will_paginate'
 include ActionView::Helpers::NumberHelper
 
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:edit_settings, :update_settings, :index, :all_users, :messages, :sme_edit, :all_users, :provider_edit]
+  before_action :signed_in_user, only: [:edit_settings, :update_settings, :index, :all_users, :messages, :sme_edit, :provider_edit]
 
   before_filter :authenticate_user!
 
