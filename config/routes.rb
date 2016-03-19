@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get 'users/:id/provider_edit' => 'users#provider_edit', as: 'provider_edit'
     patch 'users/:id/provider_edit' => 'users#provider_update'  
     get 'messages' => 'users#index', as: 'messages'
+    delete 'users/:id/delete' => 'user_registrations#destroy', :via => :delete, as: 'delete'
   end
   resources :conversations, :path_prefix => 'messages' do
     resources :messages

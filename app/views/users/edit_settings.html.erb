@@ -22,3 +22,5 @@
   
   <%= f.submit "Save changes", class: "btn btn-primary" %>
 <% end %>
+
+<p><%= button_to "Cancel my account", delete_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %></p>
