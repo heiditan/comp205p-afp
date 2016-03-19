@@ -15,10 +15,13 @@
 <div><%= "Address:" %><br /></div>
 <%= @user.address %>
 
-<% if @user.rolable_type == 'Sme' %>
-	<div><%= link_to "Edit Profile", sme_edit_path %></div>
-<% else %>
-	<div><%= link_to "Edit Profile", provider_edit_path %></div>
+<% if current_user.id == @user.id %>
+	<% if @user.rolable_type == 'Sme' %>
+		<div><%= link_to "Edit Profile", sme_edit_path %></div>
+	<% else %>
+		<div><%= link_to "Edit Profile", provider_edit_path %></div>
+	<% end %>
+  <% else %>
+  <div><%= link_to "Send a Message to this User", messages_path %></div>
 <% end %>
-
 

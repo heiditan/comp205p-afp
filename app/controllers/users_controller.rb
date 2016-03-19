@@ -3,7 +3,7 @@ require 'will_paginate'
 include ActionView::Helpers::NumberHelper
 
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:edit_settings, :update_settings, :index, :all_users]
+  before_action :signed_in_user, only: [:edit_settings, :update_settings, :index, :all_users, :messages, :sme_edit, :all_users, :provider_edit]
 
   before_filter :authenticate_user!
 
@@ -13,6 +13,11 @@ class UsersController < ApplicationController
 
   def edit_settings
     @user = User.find(params[:id])
+    unless current_user.id == @user.id
+      flash[:notice] = "You don't have access to that page!"
+      redirect_to root_path
+      return
+    end
   end
 
   def update_settings
@@ -27,6 +32,11 @@ class UsersController < ApplicationController
 
   def sme_edit
     @user = User.find(params[:id])
+    unless current_user.id == @user.id
+      flash[:notice] = "You don't have access to that page!"
+      redirect_to root_path
+      return
+    end
   end
 
   def sme_update
@@ -41,6 +51,11 @@ class UsersController < ApplicationController
 
   def provider_edit
     @user = User.find(params[:id])
+    unless current_user.id == @user.id
+      flash[:notice] = "You don't have access to that page!"
+      redirect_to root_path
+      return
+    end
   end
 
   def provider_update
