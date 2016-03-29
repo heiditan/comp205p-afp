@@ -3,52 +3,54 @@
 
 <%= form_for @user, url: sme_edit_path(@user) do |f| %>
   
-  <div><%= f.label :username, "1. Name of Company" %><br />
-  <%= f.text_field :username, :required => 'required' %></div>
+  <h4><%= f.label :username, "1. Name of Company" %>
+  <%= f.text_field :username, :required => 'required' %></h4>
 
-  <div><%= f.label :ceo_name, "2. Name of Chief Executive Officer" %><br />
-  <%= f.text_field :ceo_name, :required => 'required' %></div>
+  <h4><%= f.label :ceo_name, "2. Name of Chief Executive Officer" %><br />
+  <%= f.text_field :ceo_name, :required => 'required' %></h4>
 
-  <div><%= "3. Date Founded" %><br /></div>
+  <h4>3. Date Founded<br /></h4>
   <%= date_field(:user, :date_founded) %>
 
-  <div><%= "4. Type of Business Activity" %><br /></div>
+  <h4>4. Type of Business Activity<br /></h4>
   <%= f.radio_button(:business_activity, "Product") %> 
-  <%= f.label(:business_activity, "Product") %>
+  <%= f.label(:business_activity_product, "Product") %>
   <%= f.radio_button(:business_activity, "Service") %> 
-  <%= f.label(:business_activity, "Service") %>
+  <%= f.label(:business_activity_service, "Service") %>
   <%= f.radio_button(:business_activity, "Others") %> 
-  <%= f.label(:business_activity, "Others") %>
+  <%= f.label(:business_activity_others, "Others") %>
 
-  <div><%= "5. Nature of Funding Sought (your current selection is '" %><%= @user.nature_of_funding %><%= "')" %><br /></div>
+  <h4>5. Nature of Funding Sought (your current selection is ' <%= @user.nature_of_funding %><%= "')" %><br /></h4>
   <div><%= check_box_tag 'user[nature_of_funding][]', 'Options', false, id: 'nature_of_funding_options' %>
-  <%= label_tag 'nature_of_funding', 'Options' %></div>
+  <%= label_tag 'nature_of_funding_options', 'Options' %></div>
   <div><%= check_box_tag 'user[nature_of_funding][]', 'Loans', false, id: 'nature_of_funding_loans' %>
-  <%= label_tag 'nature_of_funding', 'Loans' %></div>
+  <%= label_tag 'nature_of_funding_loans', 'Loans' %></div>
   <div><%= check_box_tag 'user[nature_of_funding][]', 'Equity', false, id: 'nature_of_funding_equity' %>
-  <%= label_tag 'nature_of_funding', 'Equity' %></div>
+  <%= label_tag 'nature_of_funding_equity', 'Equity' %></div>
   <div><%= check_box_tag 'user[nature_of_funding][]', 'Others', false, id: 'nature_of_funding_others' %>
-  <%= label_tag 'nature_of_funding', 'Others' %></div>
+  <%= label_tag 'nature_of_funding_others', 'Others' %></div>
 
-  <div><%= "6. Other Forms of Support Sought (your current selection is '" %><%= @user.other_support_sought %><%= "')" %><br /></div>
+  <h4>6. Other Forms of Support Sought (your current selection is '<%= @user.other_support_sought %><%= "')" %><br /></h4>
   <div><%= check_box_tag 'user[other_support_sought][]', 'Financial Management', false, id: 'other_support_sought_financial_management' %>
-  <%= label_tag 'other_support_sought', 'Financial Management' %></div>
+  <%= label_tag 'other_support_sought_financial_management', 'Financial Management' %></div>
   <div><%= check_box_tag 'user[other_support_sought][]', 'Strategy Expertise', false, id: 'other_support_sought_strategy_expertise' %>
-  <%= label_tag 'other_support_sought', 'Strategy Expertise' %></div>
+  <%= label_tag 'other_support_sought_strategy_expertise', 'Strategy Expertise' %></div>
   <div><%= check_box_tag 'user[other_support_sought][]', 'Financing Advice', false, id: 'other_support_sought_financing_advice' %>
-  <%= label_tag 'other_support_sought', 'Financing Advice' %></div>
+  <%= label_tag 'other_support_sought_financing_advice', 'Financing Advice' %></div>
   <div><%= check_box_tag 'user[other_support_sought][]', 'Marketing Advice', false, id: 'other_support_sought_marketing_advice' %>
-  <%= label_tag 'other_support_sought', 'Marketing Advice' %></div>
+  <%= label_tag 'other_support_sought_marketing_advice', 'Marketing Advice' %></div>
   <div><%= check_box_tag 'user[other_support_sought][]', 'Human Resources Advice', false, id: 'other_support_sought_human_resources_advice' %>
-  <%= label_tag 'other_support_sought', 'Human Resources Advice' %></div>
+  <%= label_tag 'other_support_sought_human_resources_advice', 'Human Resources Advice' %></div>
   <div><%= check_box_tag 'user[other_support_sought][]', 'Operations Advice', false, id: 'other_support_sought_operations_advice' %>
-  <%= label_tag 'other_support_sought', 'Operations Advice' %></div>
+  <%= label_tag 'other_support_sought_operations_advice', 'Operations Advice' %></div>
   <div><%= check_box_tag 'user[other_support_sought][]', 'Others', false, id: 'other_support_sought_others' %>
-  <%= label_tag 'other_support_sought', 'Others' %></div>
+  <%= label_tag 'other_support_sought_others', 'Others' %></div>
   
-  <div><%= "7. Use this to let credit providers know what your company is pitching! Anything can be shown here eg. company prospectus." %><br /></div>
-   <%= f.cktext_area :content, :class => "form-control" %>
+  <h4>7. Use this to let credit providers know what your company is pitching! Anything can be shown here eg. company prospectus<br /></h4>
+  <div style="width:75%;margin-left:15%">
+   <%= f.cktext_area :content, :class => "formcontrol" %></div>
+   <br>
     
-  <div><%= f.submit "Save changes", class: "btn btn-primary" %></div>
+  <div><%= f.submit "Save changes", class: "button fit special" %></div>
 <% end %>
 

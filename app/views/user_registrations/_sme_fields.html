@@ -1,51 +1,52 @@
-<div><%= f.label :username, "Name of Company" %><br />
-<%= f.text_field :username, :required => 'required' %></div>
+<h4>Name of Company</h4><br />
+<%= f.text_field :username, :required => 'required' %></div><br>
 
-<div><%= f.label :ceo_name, "Name of Chief Executive Officer" %><br />
+<h4>Name of Chief Executive Officer</h4><br />
 <%= f.text_field :ceo_name, :required => 'required' %></div>
 
 
-<div><%= "Please read through the following questions and answer them accordingly. 
-These information will help credit providers narrow down their search for suitable SMEs." %><br /></div>
+<h4>Please read through the following questions and answer them accordingly. 
+These information will help credit providers narrow down their search for suitable SMEs<br /></h4>
 
 
-<div><%= "1. Date Founded" %><br /></div>
-<%= date_field(:user, :date_founded) %>
+<h4>1. Date Founded</h4>
+<div><%= date_field(:user, :date_founded) %></div>
+<br>
 
-<div><%= "2. Type of Business Activity" %><br /></div>
+<h4>2. Type of Business Activity<br /></h4>
 <%= f.radio_button(:business_activity, "Product") %> 
-<%= f.label(:business_activity, "Product") %>
+<%= f.label(:business_activity_product, "Product") %>
 <%= f.radio_button(:business_activity, "Service") %> 
-<%= f.label(:business_activity, "Service") %>
+<%= f.label(:business_activity_service, "Service") %>
 <%= f.radio_button(:business_activity, "Others") %> 
-<%= f.label(:business_activity, "Others") %>
+<%= f.label(:business_activity_others, "Others") %>
 
-<div><%= "2. Nature of Funding Sought" %><br /></div>
+<h4>2. Nature of Funding Sought<br/></h4>
 <div><%= check_box_tag 'user[nature_of_funding][]', 'Options', false, id: 'nature_of_funding_options' %>
-<%= label_tag 'nature_of_funding', 'Options' %></div>
+<%= label_tag 'nature_of_funding_options', 'Options' %></div>
 <div><%= check_box_tag 'user[nature_of_funding][]', 'Loans', false, id: 'nature_of_funding_loans' %>
-<%= label_tag 'nature_of_funding', 'Loans' %></div>
+<%= label_tag 'nature_of_funding_loans', 'Loans' %></div>
 <div><%= check_box_tag 'user[nature_of_funding][]', 'Equity', false, id: 'nature_of_funding_equity' %>
-<%= label_tag 'nature_of_funding', 'Equity' %></div>
+<%= label_tag 'nature_of_funding_equity', 'Equity' %></div>
 <div><%= check_box_tag 'user[nature_of_funding][]', 'Others', false, id: 'nature_of_funding_others' %>
-<%= label_tag 'nature_of_funding', 'Others' %></div>
+<%= label_tag 'nature_of_funding_others', 'Others' %></div>
 
 
-<div><%= "3. Other Forms of Support Sought" %><br /></div>
+<h4>3. Other Forms of Support Sought<br /></h4>
 <div><%= check_box_tag 'user[other_support_sought][]', 'Financial Management', false, id: 'other_support_sought_financial_management' %>
-<%= label_tag 'other_support_sought', 'Financial Management' %></div>
+<%= label_tag 'other_support_sought_financial_management', 'Financial Management' %></div>
 <div><%= check_box_tag 'user[other_support_sought][]', 'Strategy Expertise', false, id: 'other_support_sought_strategy_expertise' %>
-<%= label_tag 'other_support_sought', 'Strategy Expertise' %></div>
+<%= label_tag 'other_support_sought_strategy_expertise', 'Strategy Expertise' %></div>
 <div><%= check_box_tag 'user[other_support_sought][]', 'Financing Advice', false, id: 'other_support_sought_financing_advice' %>
-<%= label_tag 'other_support_sought', 'Financing Advice' %></div>
+<%= label_tag 'other_support_sought_financing_advice', 'Financing Advice' %></div>
 <div><%= check_box_tag 'user[other_support_sought][]', 'Marketing Advice', false, id: 'other_support_sought_marketing_advice' %>
-<%= label_tag 'other_support_sought', 'Marketing Advice' %></div>
+<%= label_tag 'other_support_sought_marketing_advice', 'Marketing Advice' %></div>
 <div><%= check_box_tag 'user[other_support_sought][]', 'Human Resources Advice', false, id: 'other_support_sought_human_resources_advice' %>
-<%= label_tag 'other_support_sought', 'Human Resources Advice' %></div>
+<%= label_tag 'other_support_sought_human_resources_advice', 'Human Resources Advice' %></div>
 <div><%= check_box_tag 'user[other_support_sought][]', 'Operations Advice', false, id: 'other_support_sought_operations_advice' %>
-<%= label_tag 'other_support_sought', 'Operations Advice' %></div>
+<%= label_tag 'other_support_sought_operations_advice', 'Operations Advice' %></div>
 <div><%= check_box_tag 'user[other_support_sought][]', 'Others', false, id: 'other_support_sought_others' %>
-<%= label_tag 'other_support_sought', 'Others' %></div>
+<%= label_tag 'other_support_sought_others', 'Others' %></div>
 
 
 

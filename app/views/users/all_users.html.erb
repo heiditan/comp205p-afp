@@ -9,93 +9,92 @@
   * sets form_for options like :url, :method and input name prefix
 %>
 <%= form_for_filterrific @filterrific do |f| %>
-  <div>
-    Search
+  <h4>Search
     <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
     <%= f.text_field(
       :search_query,
-      class: 'filterrific-periodically-observed'
+      class: 'filterrific-periodically-observed', id: "searching1"
     ) %>
-  </div>
-  <div>
+  </h4>
+  <h4>
     Sorted by
     <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
-  </div>
-  <div>
+  </h4>
+  <h4>
     Are you looking for a SME or a credit provider?
     <%= f.select(
       :with_rolable_type,
       @filterrific.select_options[:with_rolable_type],
-      { include_blank: '- Any -' }
+      { include_blank: '- Any -' }, id: "searching"
     ) %>
-  </div>
-  <div>
+  </h4>
+  <h4>
     If you have chosen Provider, please proceed to select your search criteria from A. If you have chosen SME, please proceed to select your search criteria from B. 
-  </div>
-  <div>
+  </h4>
+  <h4>
     A) Search for a Credit Provider
-  </div>
-  <div>
+  </h4>
+  <h4>
     1. Are you looking for a credit provider who is acting as an individual or a company?
     <%= f.select(
       :with_provider_type,
       @filterrific.select_options[:with_provider_type],
-      { include_blank: '- Any -' }
+      { include_blank: '- Any -' }, id: "searching"
     ) %>
-  </div>
-  <div>
+  </h4>
+  <h4>
     2. Nature of Financing Offered
     <%= f.select(
       :by_nature_of_financing,
       @filterrific.select_options[:by_nature_of_financing],
-      { include_blank: '- Any -' }
+      { include_blank: '- Any -' }, id: "searching"
     ) %>
-  </div>
-  <div>
+  </h4>
+  <h4>
     3. Other Support Offered
     <%= f.select(
       :by_other_support_offered,
       @filterrific.select_options[:by_other_support_offered],
-      { include_blank: '- Any -' }
+      { include_blank: '- Any -' }, id: "searching"
     ) %>
-  </div>
-  <div>
+  </h4>
+  <h4>
     B) Search for a SME
-  </div>
-  <div>
+  </h4>
+  <h4>
     1. Type of Business Activity Conducted
     <%= f.select(
       :with_business_activity,
       @filterrific.select_options[:with_business_activity],
-      { include_blank: '- Any -' }
+      { include_blank: '- Any -' }, id: "searching"
     ) %>
-  </div>
-  <div>
+  </h4>
+  <h4>
     2. Nature of Funding Sought 
     <%= f.select(
       :by_nature_of_funding,
       @filterrific.select_options[:by_nature_of_funding],
-      { include_blank: '- Any -' }
+      { include_blank: '- Any -' }, id: "searching"
     ) %>
-  </div>
-  <div>
+  </h4>
+  <h4>
     3. Other Support Sought 
     <%= f.select(
       :by_other_support_sought,
       @filterrific.select_options[:by_other_support_sought],
-      { include_blank: '- Any -' }
+      { include_blank: '- Any -' }, id: "searching"
     ) %>
-  </div>
-  <div>
+  </h4>
+  <h4>
     4. Date Founded
-    <%= f.date_field(:with_date_founded, class: 'js-datepicker') %>
-  </div>
-  <div>
+    <%= f.date_field(:with_date_founded, class: 'js-datepicker', id: "date1") %>
+  </h4>
+  <h3>
     <%= link_to(
       'Reset filters',
       reset_filterrific_url,
     ) %>
-  </div>
+  </h3>
   <%# add an automated spinner to your form when the list is refreshed %>
   <%= render_filterrific_spinner %>
 <% end %>

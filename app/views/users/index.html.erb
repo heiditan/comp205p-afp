@@ -1,10 +1,3 @@
-<div class="row">
-  <!-- Not implemented on tutorial -->
-  <div class="col-md-4">
-    <div style="height: 300px; overflow-y: auto;">
-      <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Registered Users</div>
 
         <!-- Table -->
         <table class="table">
@@ -33,14 +26,14 @@
 
     </div>
     <hr>
-    <h3>Your Conversations</h3>
+    <h4>Your Conversations</h4>
 
     <div style="height: 400px; overflow-y: auto;">
       <% if @conversations.any? %>
           <ul class="media-list">
             <% @conversations.each do |conversation| %>
-                <li class="media">
-                  <%= image_tag("http://placehold.it/50x50", class: "media-object pull-left") %>
+                <li class="media", style="text-align:center">
+                  <%= image_tag("http://placehold.it/50x50")%>
                   <div class="media-body">
                     <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
                         <h4 class="media-heading"><%= conversation_interlocutor(conversation).username %></h4>
