@@ -28,12 +28,13 @@
       { include_blank: '- Any -' }, id: "searching"
     ) %>
   </h4>
-  <h4>
+  <h5>
     If you have chosen Provider, please proceed to select your search criteria from A. If you have chosen SME, please proceed to select your search criteria from B. 
-  </h4>
-  <h4>
+  </h5>
+ <div class ='boxwrapper'>
+  <div id ='boxed1'><h3>
     A) Search for a Credit Provider
-  </h4>
+  </h3>
   <h4>
     1. Are you looking for a credit provider who is acting as an individual or a company?
     <%= f.select(
@@ -57,10 +58,11 @@
       @filterrific.select_options[:by_other_support_offered],
       { include_blank: '- Any -' }, id: "searching"
     ) %>
-  </h4>
-  <h4>
+  </h4></div>
+
+ <div id ='boxed2' ><h3>
     B) Search for a SME
-  </h4>
+  </h3>
   <h4>
     1. Type of Business Activity Conducted
     <%= f.select(
@@ -88,7 +90,8 @@
   <h4>
     4. Date Founded
     <%= f.date_field(:with_date_founded, class: 'js-datepicker', id: "date1") %>
-  </h4>
+  </h4></div>
+</div>
   <h3>
     <%= link_to(
       'Reset filters',

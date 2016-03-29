@@ -8,15 +8,13 @@
     <tr>
       <th>Organisation Type</th>
       <th>Name of Organisation</th>
-      <th>Email</th> 
-      <th>Nature of Funding</th>  
+      <th>Email</th>  
     </tr>
     <% users.each do |user| %>
       <tr>
         <td><%= user.rolable_type %></td>
         <td><%= link_to user.username, profile_path(user) %></td>  
         <td><%= user.email %></td> 
-        <td><%= user.nature_of_funding %></td> 
       </tr>
     <% end %>
   </table>

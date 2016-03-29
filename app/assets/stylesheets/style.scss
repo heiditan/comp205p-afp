@@ -11,6 +11,29 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
+
+.boxwrapper {
+    width:1000px;
+    margin: 0 auto;
+    overflow: hidden
+}
+
+
+#boxed1 {
+  border: 1px solid black ;
+  float: left;
+  width: 500px;
+  height: 350px;
+}
+
+#boxed2 {
+  border: 1px solid black ;
+  float: right;
+  width: 500px;
+  height: 350px;
+ 
+}
+
 #date1
 {
    margin:0 auto;
@@ -19,15 +42,18 @@
 #searching
 {
 	width: 15%;
+	height: 30px; 
 	text-align: center;
 }
 #searching1
 {
-	width: 35%;
+	width: 50%;
+	height: 40px; 
 }
 #filterrific_sorted_by
 {
 	width: 34%;
+	height: 35px;
 }
 #homepage
 {
