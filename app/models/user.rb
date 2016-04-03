@@ -170,7 +170,7 @@ class User < ActiveRecord::Base
   end
 
   def self.other_support_sought_for_select
-    ['Financial Management', 'Strategise Expertise', 'Financing Advice', 'Marketing Advice', 'Human Resources Advice', 'Operations Advice', 'Others']
+    ['Financial Management', 'Strategy Expertise', 'Financing Advice', 'Marketing Advice', 'Human Resources Advice', 'Operations Advice', 'Others']
   end
 
 end
