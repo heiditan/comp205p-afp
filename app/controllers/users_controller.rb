@@ -60,7 +60,7 @@ class UsersController < ApplicationController
 
   def provider_update
     @user = User.find(params[:id])
-    if @user.update_attributes(sme_params)
+    if @user.update_attributes(provider_params)
       flash.now[:success] = "Profile has been successfully updated."
       render 'provider_edit'
     else

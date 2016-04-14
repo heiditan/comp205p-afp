@@ -20,7 +20,7 @@
   <%= f.radio_button(:business_activity, "Others") %> 
   <%= f.label(:business_activity_others, "Others") %>
 
-  <h4>5. Nature of Funding Sought (your current selection is ' <%= @user.nature_of_funding %><%= "')" %><br /></h4>
+  <h4>5. Nature of Funding Sought (your current selection is ' <b><span style="color:red"><%= @user.nature_of_funding %></span></b><%= "')" %><br /></h4><h5>Choose your new selection below or leave it empty to keep the current selection unchanged.</h5>
   <div><%= check_box_tag 'user[nature_of_funding][]', 'Options', false, id: 'nature_of_funding_options' %>
   <%= label_tag 'nature_of_funding_options', 'Options' %></div>
   <div><%= check_box_tag 'user[nature_of_funding][]', 'Loans', false, id: 'nature_of_funding_loans' %>
@@ -30,7 +30,7 @@
   <div><%= check_box_tag 'user[nature_of_funding][]', 'Others', false, id: 'nature_of_funding_others' %>
   <%= label_tag 'nature_of_funding_others', 'Others' %></div>
 
-  <h4>6. Other Forms of Support Sought (your current selection is '<%= @user.other_support_sought %><%= "')" %><br /></h4>
+  <h4>6. Other Forms of Support Sought (your current selection is '<b><span style="color:red"><%= @user.other_support_sought %></span></b><%= "')" %><br /></h4><h5>Choose your new selection below or leave it empty to keep the current selection unchanged.</h5>
   <div><%= check_box_tag 'user[other_support_sought][]', 'Financial Management', false, id: 'other_support_sought_financial_management' %>
   <%= label_tag 'other_support_sought_financial_management', 'Financial Management' %></div>
   <div><%= check_box_tag 'user[other_support_sought][]', 'Strategy Expertise', false, id: 'other_support_sought_strategy_expertise' %>

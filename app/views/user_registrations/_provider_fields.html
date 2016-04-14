@@ -16,7 +16,7 @@
 These information will help SMEs narrow down their search for suitable credit providers<br/></h4>
 
 
-<h4><%= "1. Nature of Financing Offered" %><br /></h4>
+<h4><%= "1. Nature of Financing Offered (more than one option can be selected)" %><br /></h4>
 <div><%= check_box_tag 'user[nature_of_financing][]', 'Options', false, id: 'nature_of_financing_options' %>
 <%= label_tag 'nature_of_financing_options', 'Options' %></div>
 <div><%= check_box_tag 'user[nature_of_financing][]', 'Loans', false, id: 'nature_of_financing_loans' %>
@@ -29,7 +29,7 @@ These information will help SMEs narrow down their search for suitable credit pr
   
  
 
-<h4><%= "2. Other Forms of Support Offered" %><br /></h4>
+<h4><%= "2. Other Forms of Support Offered (more than one option can be selected)" %><br /></h4>
 <div><%= check_box_tag 'user[other_support_offered][]', 'Financial Management', false, id: 'other_support_offered_financial_management' %>
 <%= label_tag 'other_support_offered_financial_management', 'Financial Management' %></div>
 <div><%= check_box_tag 'user[other_support_offered][]', 'Strategy Expertise', false, id: 'other_support_offered_strategy_expertise' %>

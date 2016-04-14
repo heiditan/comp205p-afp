@@ -13,7 +13,7 @@
   <div><%= f.radio_button(:provider_type, "Company") %> 
   <%= f.label(:provider_type_company, "Company") %></div>
 
-  <h4>3. Nature of Financing Offered (your current selection is '<%= @user.nature_of_financing %><%= "')" %><br /></h4>
+  <h4>3. Nature of Financing Offered (your current selection is '<b><span style="color:red"><%= @user.nature_of_financing %></span></b><%= "')" %><br /></h4><h5>Choose your new selection below or leave it empty to keep the current selection unchanged.</h5>
   <div><%= check_box_tag 'user[nature_of_financing][]', 'Options', false, id: 'nature_of_financing_options' %>
   <%= label_tag 'nature_of_financing_options', 'Options' %></div>
   <div><%= check_box_tag 'user[nature_of_financing][]', 'Loans', false, id: 'nature_of_financing_loans' %>
@@ -23,7 +23,7 @@
   <div><%= check_box_tag 'user[nature_of_financing][]', 'Others', false, id: 'nature_of_financing_others' %>
   <%= label_tag 'nature_of_financing_others', 'Others' %></div>
 
-  <h4>4. Other Forms of Support Offered (your current selection is " <%= @user.other_support_offered %><%= "')" %><br /></h4>
+  <h4>4. Other Forms of Support Offered (your current selection is '<b><span style="color:red"><%= @user.other_support_offered %></span></b><%= "')" %><br /></h4><h5>Choose your new selection below or leave it empty to keep the current selection unchanged.</h5>
   <div><%= check_box_tag 'user[other_support_offered][]', 'Financial Management', false, id: 'other_support_offered_financial_management' %>
   <%= label_tag 'other_support_offered_financial_management', 'Financial Management' %></div>
   <div><%= check_box_tag 'user[other_support_offered][]', 'Strategy Expertise', false, id: 'other_support_offered_strategy_expertise' %>
