@@ -154,7 +154,7 @@ class User < ActiveRecord::Base
   end
 
   def self.rolable_type_for_select
-    ['Provider','Sme']
+    order('LOWER(rolable_type)').map { |e| [e.rolable_type] }.uniq 
   end
 
   def self.business_activity_for_select
