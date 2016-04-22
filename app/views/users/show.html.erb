@@ -1,0 +1,27 @@
+<h1>Profile</h1>
+<% if @user.rolable_type == 'Sme' %>
+	<%= render 'sme_profile' %>
+<% else %>
+	<%= render 'provider_profile' %>
+<% end %>
+
+<%= @user.content.to_s.html_safe %>
+
+<h4>Contact Details<br /></h4>
+<h4>Email Address:<br /></h4>
+<h5><%= @user.email %></h5>
+<h4>Contact Number:<br /></h4>
+<h5><%= @user.contact_number %></h5>
+<h4>Address:<br /></h4>
+<h5><%= @user.address %></h5>
+
+<% if current_user.id == @user.id %>
+	<% if @user.rolable_type == 'Sme' %>
+		<h3><%= link_to "Edit Profile", sme_edit_path %></h3>
+	<% else %>
+		<h3><%= link_to "Edit Profile", provider_edit_path %></h3>
+	<% end %>
+  <% else %>
+  <div><%= link_to "Send a Message to this User", messages_path %></div>
+<% end %>
+

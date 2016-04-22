@@ -3,8 +3,77 @@ require 'will_paginate'
 include ActionView::Helpers::NumberHelper
 
 class UsersController < ApplicationController
+  before_action :signed_in_user, only: [:edit_settings, :update_settings, :index, :all_users, :messages, :sme_edit, :provider_edit]
+
+  before_filter :authenticate_user!
+
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def edit_settings
+    @user = User.find(params[:id])
+    unless current_user.id == @user.id
+      flash[:notice] = "You don't have access to that page!"
+      redirect_to root_path
+      return
+    end
+  end
+
+  def update_settings
+    @user = User.find(params[:id])
+    if @user.update_attributes(setting_params)
+      flash.now[:success] = "Settings have been successfully saved."
+      render 'edit_settings'
+    else
+      render 'edit_settings'
+    end
+  end
+
+  def sme_edit
+    @user = User.find(params[:id])
+    unless current_user.id == @user.id
+      flash[:notice] = "You don't have access to that page!"
+      redirect_to root_path
+      return
+    end
+  end
+
+  def sme_update
+    @user = User.find(params[:id])
+    if @user.update_attributes(sme_params)
+      flash.now[:success] = "Profile has been successfully updated."
+      render 'sme_edit'
+    else
+      render 'sme_edit'
+    end
+  end
+
+  def provider_edit
+    @user = User.find(params[:id])
+    unless current_user.id == @user.id
+      flash[:notice] = "You don't have access to that page!"
+      redirect_to root_path
+      return
+    end
+  end
+
+  def provider_update
+    @user = User.find(params[:id])
+    if @user.update_attributes(provider_params)
+      flash.now[:success] = "Profile has been successfully updated."
+      render 'provider_edit'
+    else
+      render 'provider_edit'
+    end
+  end
 
   def index
+      @users = User.where.not("id = ?",current_user.id).order("created_at DESC")
+      @conversations = Conversation.involving(current_user).order("created_at DESC")
+  end
+
+  def all_users
     @filterrific = initialize_filterrific(
       User,
       params[:filterrific],
@@ -27,5 +96,26 @@ class UsersController < ApplicationController
       format.js
     end
   end
+
+    def signed_in_user
+      unless signed_in?
+        redirect_to new_user_session_path
+      end
+    end
+
+  private
+
+    def setting_params
+      params.require(:user).permit(:address, :contact_number, :email, :password,
+                                   :password_confirmation, :current_password)
+    end
+
+    def sme_params
+      params.require(:user).permit(:ceo_name, :username, :business_activity, :date_founded, :content, nature_of_funding:[], other_support_sought:[])
+    end
+
+    def provider_params
+      params.require(:user).permit(:username, :provider_type, :content, nature_of_financing:[], other_support_offered:[])
+    end
 
 end

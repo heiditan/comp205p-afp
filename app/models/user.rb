@@ -4,11 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :conversations, :foreign_key => :sender_id
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :nature_of_funding, :other_support_sought, :other_support_offered, :nature_of_financing, :date_founded, :ceo_name, :provider_type, :business_activity
+
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :address, :contact_number, :nature_of_funding, :other_support_sought, :other_support_offered, :nature_of_financing, :date_founded, :ceo_name, :provider_type, :business_activity, :content
 
   belongs_to :rolable, :polymorphic => true
-
+  
   before_save do
     self.nature_of_funding.gsub!(/[\[\]\"]/, "") if attribute_present?("nature_of_funding")
     self.other_support_sought.gsub!(/[\[\]\"]/, "") if attribute_present?("other_support_sought")
@@ -160,7 +162,7 @@ class User < ActiveRecord::Base
   end
 
   def self.provider_type_for_select
-    order('LOWER(provider_type)').select { |e| !e.provider_type.nil? }.map { |e| [e.provider_type] }.uniq
+    ['Company', 'Individual']
   end
 
   def self.nature_of_funding_for_select
@@ -168,7 +170,7 @@ class User < ActiveRecord::Base
   end
 
   def self.other_support_sought_for_select
-    ['Financial Management', 'Strategise Expertise', 'Financing Advice', 'Marketing Advice', 'Human Resources Advice', 'Operations Advice', 'Others']
+    ['Financial Management', 'Strategy Expertise', 'Financing Advice', 'Marketing Advice', 'Human Resources Advice', 'Operations Advice', 'Others']
   end
 
 end

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.2.3'
 
 gem 'rails',                   '4.2.2'
 gem 'bcrypt',                  '3.1.7'
@@ -21,6 +21,10 @@ gem 'devise'
 gem 'protected_attributes'
 gem 'filterrific'
 gem 'builder', '~> 3.2', '>= 3.2.2'
+gem 'ckeditor'
+gem 'paperclip'
+gem 'private_pub'
+gem 'thin'
 
 
 group :development, :test do

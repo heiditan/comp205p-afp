@@ -1,0 +1,48 @@
+<h1>Update your Profile</h1>
+
+
+<%= form_for @user, url: provider_edit_path(@user) do |f| %>
+
+  <h4>1. Name of Funder<br /></h4>
+  
+  <%= f.text_field :username, :required => 'required' %><br></h4>
+
+  <h4>2. Type of Credit Provider<br /></h4>
+  <div><%= f.radio_button(:provider_type, "Individual") %> 
+  <%= f.label(:provider_type_individual, "Individual") %></div>
+  <div><%= f.radio_button(:provider_type, "Company") %> 
+  <%= f.label(:provider_type_company, "Company") %></div>
+
+  <h4>3. Nature of Financing Offered (your current selection is '<b><span style="color:red"><%= @user.nature_of_financing %></span></b><%= "')" %><br /></h4><h5>Choose your new selection below or leave it empty to keep the current selection unchanged.</h5>
+  <div><%= check_box_tag 'user[nature_of_financing][]', 'Options', false, id: 'nature_of_financing_options' %>
+  <%= label_tag 'nature_of_financing_options', 'Options' %></div>
+  <div><%= check_box_tag 'user[nature_of_financing][]', 'Loans', false, id: 'nature_of_financing_loans' %>
+  <%= label_tag 'nature_of_financing_loans', 'Loans' %></div>
+  <div><%= check_box_tag 'user[nature_of_financing][]', 'Equity', false, id: 'nature_of_financing_equity' %>
+  <%= label_tag 'nature_of_financing_equity', 'Equity' %></div>
+  <div><%= check_box_tag 'user[nature_of_financing][]', 'Others', false, id: 'nature_of_financing_others' %>
+  <%= label_tag 'nature_of_financing_others', 'Others' %></div>
+
+  <h4>4. Other Forms of Support Offered (your current selection is '<b><span style="color:red"><%= @user.other_support_offered %></span></b><%= "')" %><br /></h4><h5>Choose your new selection below or leave it empty to keep the current selection unchanged.</h5>
+  <div><%= check_box_tag 'user[other_support_offered][]', 'Financial Management', false, id: 'other_support_offered_financial_management' %>
+  <%= label_tag 'other_support_offered_financial_management', 'Financial Management' %></div>
+  <div><%= check_box_tag 'user[other_support_offered][]', 'Strategy Expertise', false, id: 'other_support_offered_strategy_expertise' %>
+  <%= label_tag 'other_support_offered_strategy_expertise', 'Strategy Expertise' %></div>
+  <div><%= check_box_tag 'user[other_support_offered][]', 'Financing Advice', false, id: 'other_support_offered_financing_advice' %>
+  <%= label_tag 'other_support_offered_financing_advice', 'Financing Advice' %></div>
+  <div><%= check_box_tag 'user[other_support_offered][]', 'Marketing Advice', false, id: 'other_support_offered_marketing_advice' %>
+  <%= label_tag 'other_support_offered_marketing_advice', 'Marketing Advice' %></div>
+  <div><%= check_box_tag 'user[other_support_offered][]', 'Human Resources Advice', false, id: 'other_support_offered_human_resources_advice' %>
+  <%= label_tag 'other_support_offered_human_resources_advice', 'Human Resources Advice' %></div>
+  <div><%= check_box_tag 'user[other_support_offered][]', 'Operations Advice', false, id: 'other_support_offered_operations_advice' %>
+  <%= label_tag 'other_support_offered_operations_advice', 'Operations Advice' %></div>
+  <div><%= check_box_tag 'user[other_support_offered][]', 'Others', false, id: 'other_support_offered_others' %>
+  <%= label_tag 'other_support_offered_others', 'Others' %></div>
+
+  <h4>5. Use this to let SMEs know more about you or your company as a credit provider! Anything can be shown here eg. your resume or your company prospectus<br /></h4>
+  <div>
+<div style="width:75%;margin-left:15%">
+   <%= f.cktext_area :content, :class => "formcontrol" %></div>
+  <br>
+  <%= f.submit "Save changes", class: "button fit special" %>
+<% end %>

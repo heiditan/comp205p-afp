@@ -1,20 +1,39 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header id="header" class="skel-layers-fixed">
   <div class="container">
-    <%= link_to "Alternative Financing Portal", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
+    <h id= 'projectname'><b href="#">COMP205P</b></h>
+    
+    <nav id="nav">
+      <ul>
         <% if user_signed_in? %>
-        <li><%= link_to "Search", users_path %></li>
+       
+                                            
+
+        <li><%= link_to "Search", all_users_path,class: "button" %></li>
         <% else %>
-        <li><%= link_to('Search', no_search_path) %></li>
+        <li><%= link_to('Search', no_search_path, class: "button") %></li>
         <% end %>
-        <li><%= link_to "Home",    root_path %></li>
-        <li><%= link_to "Help",    help_path %></li>
+        <li><%= link_to "Home", root_path, class: "button" %></li>
         <% if user_signed_in? %>
-        <li><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
-        <% else %>
-        <li><%= link_to "Log In", new_user_session_path %></li>
+        <li><%= link_to "Profile Page", profile_path(current_user),class: "button" %></li>
         <% end %>
+
+        <% if user_signed_in? %>
+        <li><%= link_to "Messages", messages_path,class: "button" %></li>
+        <% end %>
+
+        <% if user_signed_in? %>
+        <li><%= link_to "Settings", edit_settings_path(current_user),class: "button" %></li>
+        <% end %>
+        <% if user_signed_in? %>
+        <li><%= link_to('Log Out', destroy_user_session_path, :method => :delete, class: "button special") %></li>
+        <% else %>
+        <li><%= link_to "Log In", new_user_session_path, class: "button special" %></li>
+        <% end %>
+
+
+
+
+
       </ul>
     </nav>
   </div>

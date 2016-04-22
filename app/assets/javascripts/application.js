@@ -15,3 +15,6 @@
 //= require turbolinks
 //= require_tree .
 //= require filterrific/filterrific-jquery
+//= require ckeditor/init
+//= require chat 
+//= require private_pub

@@ -1,106 +1,64 @@
-<h1>Users</h1>
+<div class="row">
+  <!-- Not implemented on tutorial -->
+  <div class="col-md-4">
+    <div style="height: 400px; width: 600px; overflow-y: auto;">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Registered Users</div>
 
-<%#
-  Filterrific adds the `form_for_filterrific` view helper:
-  * adds dom id 'filterrific_filter'
-  * applies javascript behaviors:
-      * AJAX form submission on change
-      * AJAX spinner while AJAX request is being processed
-  * sets form_for options like :url, :method and input name prefix
-%>
-<%= form_for_filterrific @filterrific do |f| %>
-  <div>
-    Search
-    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
-    <%= f.text_field(
-      :search_query,
-      class: 'filterrific-periodically-observed'
-    ) %>
-  </div>
-  <div>
-    Sorted by
-    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
-  </div>
-  <div>
-    Are you looking for a SME or a credit provider?
-    <%= f.select(
-      :with_rolable_type,
-      @filterrific.select_options[:with_rolable_type],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
-  <div>
-    If you have chosen Provider, please proceed to select your search criteria from A. If you have chosen SME, please proceed to select your search criteria from B. 
-  </div>
-  <div>
-    A) Search for a Credit Provider
-  </div>
-  <div>
-    1. Are you looking for a credit provider who is acting as an individual or a company?
-    <%= f.select(
-      :with_provider_type,
-      @filterrific.select_options[:with_provider_type],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
-  <div>
-    2. Nature of Financing Offered
-    <%= f.select(
-      :by_nature_of_financing,
-      @filterrific.select_options[:by_nature_of_financing],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
-  <div>
-    3. Other Support Offered
-    <%= f.select(
-      :by_other_support_offered,
-      @filterrific.select_options[:by_other_support_offered],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
-  <div>
-    B) Search for a SME
-  </div>
-  <div>
-    1. Type of Business Activity Conducted
-    <%= f.select(
-      :with_business_activity,
-      @filterrific.select_options[:with_business_activity],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
-  <div>
-    2. Nature of Funding Sought 
-    <%= f.select(
-      :by_nature_of_funding,
-      @filterrific.select_options[:by_nature_of_funding],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
-  <div>
-    3. Other Support Sought 
-    <%= f.select(
-      :by_other_support_sought,
-      @filterrific.select_options[:by_other_support_sought],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
-  <div>
-    4. Date Founded
-    <%= f.date_field(:with_date_founded, class: 'js-datepicker') %>
-  </div>
-  <div>
-    <%= link_to(
-      'Reset filters',
-      reset_filterrific_url,
-    ) %>
-  </div>
-  <%# add an automated spinner to your form when the list is refreshed %>
-  <%= render_filterrific_spinner %>
-<% end %>
+        <!-- Table -->
+        <table class="table">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @users.each_with_index do |user, index| %>
+              <tr>
+                <td><%= index +=1 %></td>
+                <td><%= user.username %></td>
+                <td>
+                  <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                              "data-sid" => current_user.id, "data-rip" => user.id %>
+                </td>
+              </tr>
+          <% end %>
 
-<%= render(
-  partial: 'users/list',
-  locals: { users: @users }
-) %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <hr>
+    <h3>Your Conversations</h3>
+
+    <div style="height: 400px; overflow-y: auto;">
+      <% if @conversations.any? %>
+          <ul class="media-list">
+            <% @conversations.each do |conversation| %>
+                <li class="media">
+                  <%= image_tag("http://placehold.it/50x50", class: "media-object pull-left") %>
+                  <div class="media-body">
+                    <%= link_to "", conversation_path(conversation), class: "conversation", "data-cid" => conversation.id %>
+                        <h4 class="media-heading"><%= conversation_interlocutor(conversation).username %></h4>
+                        <p><%= conversation.messages.last.nil? ? "No messages" : truncate(conversation.messages.last.body, length: 45) %></p>
+                  </div>
+                </li>
+
+            <% end %>
+          </ul>
+      <% else %>
+          <p>You have no conversations. Click send message with any user to create one.</p>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+  </div>
+
+</div>

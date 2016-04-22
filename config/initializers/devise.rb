@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '1c96c97dd7ee125b8b594d63b2cd4efa48152f2bb50f246d274b0b9209128c9465cd18b0d3d5d0ca52fb2a92a560b3b09d74b5c8b2f612df1db5cb9fb2980315'
+  config.secret_key = '1c96c97dd7ee125b8b594d63b2cd4efa48152f2bb50f246d274b0b9209128c9465cd18b0d3d5d0ca52fb2a92a560b3b09d74b5c8b2f612df1db5cb9fb2980315'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -150,7 +150,7 @@ Devise.setup do |config|
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-  # config.email_regexp = /\A[^@]+@[^@]+\z/
+  config.email_regexp = /\A[^@]+@[^@]+\z/
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this

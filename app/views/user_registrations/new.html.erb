@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h1>Sign up</h1>
 
 <%
   # customized code begin
@@ -22,14 +22,20 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= my_devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <h4>email<h4>
+  <%= f.email_field :email, :required => 'required' %></div><br>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <h4>Contact Address</h4>
+  <%= f.text_field :address, :required => 'required' %></div><br>
 
-  <div><%= f.label :password_confirmation, "Password Confirmation" %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <h4>Contact Number</h4>
+  <%= f.text_field :contact_number, :required => 'required' %></div><br>
+
+  <h4>password</h4>
+  <%= f.password_field :password, :required => 'required' %></div><br>
+
+  <h4>Password Confirmation</h4>
+  <%= f.password_field :password_confirmation %></div><br>
 
   <% # customized code begin %>
   <%= fields_for resource.rolable do |rf| %>
@@ -39,5 +45,5 @@
   <%= hidden_field :user, :user_type, :value => user_type %>
   <% # customized code end %>
 
-  <div><%= f.submit "Sign up" %></div>
+ <%= f.submit "submit", class: "button fit special" %>
 <% end %>
